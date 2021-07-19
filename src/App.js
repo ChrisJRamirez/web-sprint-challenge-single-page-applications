@@ -4,6 +4,8 @@ import axios from "axios"
 import * as yup from "yup"
 import schema from "./Schema"
 import {validate} from "uuid"
+import PizzaForm from "./PizzaForm"
+import OrderPizza from "./OrderPizza"
 // setting up codegrade
 
 const initialFormValues = {
@@ -14,7 +16,7 @@ const initialFormValues = {
 
   //dropdown for size only
   size: "",
-  
+
   //booleans for toppings & checkboxes
   pepperoni: false,
   pineapple: false,
@@ -46,15 +48,15 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled)
 
   //helper functions
-  const getOrders = () =>{
-    axios.get("https://reqres.in/api/users")
-      .then(res => {
-        setOrders(res.data.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+  // const getOrders = () =>{
+  //   axios.get("https://reqres.in/api/users")
+  //     .then(res => {
+  //       setOrders(res.data.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }
 
   const postNewOrder = newOrder => {
     axios.post("https://reqres.in/api/users", newOrder)
@@ -98,19 +100,20 @@ const App = () => {
   const formSubmit = () => {
     const newOrder = {
       name: formValues.name.trim(),
-      size: formValues.email.trim(),
+      size: formValues.size,
       address: formValues.address.trim(), 
       email: formValues.email.trim(),
       toppings: ["pepperoni", "pineapple", "sausage", "peppers"].filter(toppings => formValues[toppings]), 
+      special: formValues.special.trim()
       
     }
     postNewOrder(newOrder)
   }
 
   ///side effects
-  useEffect(() => {
-    getOrders()
-  }, [])
+  // useEffect(() => {
+  //   getOrders()
+  // }, [])
 
 
   useEffect(() => {
@@ -124,11 +127,34 @@ const App = () => {
 
 
   return (
-    <>
+  <div className="App">
+    <header>
       <h1>Lambda Eats</h1>
-      <p>Welcome to Lambda Eats! Please place your order and let us know if
-         you have any special instructions!</p>
-    </>
+    </header>
+
+    <section>
+      <PizzaForm
+      values={formValues}
+      change={inputChange}
+      submit={formSubmit}
+      disabled={disabled}
+      errors={formErrors}
+      />
+
+      {
+        orders.map(order => {
+          return (
+            <OrderPizza key={order.id} details = {order}/>
+          )
+
+        })
+      }
+     
+
+    </section>
+    
+  </div>
+    
   );
 };
 export default App;

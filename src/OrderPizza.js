@@ -10,10 +10,22 @@ export default function Order({details}) {
   return (
     <div className = "order-container">
       <h3>{details.name ? details.name : details.first_name} </h3>
-      <p>Size</p>
-      
+     
+      <p>Address: {details.address}</p>
       <p>Email: {details.email}</p>
+      <p>Size: {details.size}</p>
       
+      {
+        !!details.toppings && !!details.toppings.length &&
+        <div>
+          Toppings:
+          <ul>
+            {details.toppings.map((like, idx) => <li key={idx}>{like}</li>)}
+          </ul>
+        </div>
+      }
+
+      <p>Special Instructions: {details.special}</p>
       
     </div>
   )

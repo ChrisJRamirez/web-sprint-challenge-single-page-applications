@@ -5,7 +5,7 @@ export default yup.object().shape({
   .required("Name is required")
   .min(2, "name must be at least 2 characters"),
   size: yup.string()
-  .oneOf(["8 inches", "12 inches", "16 inches"], "Size is required"),
+  .oneOf(["8", "12", "16"], "Size is required"),
   email: yup.string()
   .email("Must be a valid email")
   .required("Email is required"),

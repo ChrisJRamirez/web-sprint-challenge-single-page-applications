@@ -24,11 +24,11 @@ export default function PizzaForm(props) {
   return (
 
     <form className='pizza-form' onSubmit={onSubmit}>
+
       <div className='form-group submit'>
         <h2>Add your order</h2>
 
-  
-        <button disabled={disabled}>submit</button>
+        <button disabled={disabled} id="order-button">Add to Order</button>
 
         <div className='errors'>
           {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
@@ -36,7 +36,8 @@ export default function PizzaForm(props) {
             <div>{errors.email}</div>
             <div>{errors.size}</div>
             <div>{errors.address}</div>
-           
+        </div>
+      </div>
 
       <div className='form-group inputs'>
         <h4>Personal information</h4>
@@ -92,8 +93,8 @@ export default function PizzaForm(props) {
           </select>
         </label>
 
-
-{/* ////////// CHECKBOXES ////////// */}
+      </div>
+      
         <div className='form-group checkboxes'>
          <h4>Toppings</h4>
 

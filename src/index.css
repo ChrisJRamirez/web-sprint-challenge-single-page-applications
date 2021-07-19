@@ -5,7 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://i.guim.co.uk/img/media/d205774b055c5cbd231ac6527d642944424ba9a9/20_0_1383_830/master/1383.jpg?width=940&quality=45&auto=format&fit=max&dpr=2&s=fd1138850fef8f2a2dbff9bb98d96db9")
+  
+}
+
+header {
+  background-image: url("https://i.guim.co.uk/img/media/d205774b055c5cbd231ac6527d642944424ba9a9/20_0_1383_830/master/1383.jpg?width=940&quality=45&auto=format&fit=max&dpr=2&s=fd1138850fef8f2a2dbff9bb98d96db9");
+  height: 100vh,
 }
 
 code {
