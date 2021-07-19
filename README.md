@@ -34,8 +34,10 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
 Use route match is used for, this is a test to setup GitHub codegrade.
-1. How would you explain form validation to someone who has never programmed before?
-1. In 1-2 sentences, define end to end testing.
+2. How would you explain form validation to someone who has never programmed before?
+
+3. In 1-2 sentences, define end to end testing.
+Testing that is used to run through the entire web application, including all functions and components. E2E testing is generally the most time intensive and therefore expensive, but it is also the most useful and makes it easier to catch any errors at the route.
 
 ## Instructions
 

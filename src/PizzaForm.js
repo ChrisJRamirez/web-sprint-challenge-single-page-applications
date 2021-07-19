@@ -26,7 +26,6 @@ export default function PizzaForm(props) {
     <form className='pizza-form' onSubmit={onSubmit}>
 
       <div className='form-group submit'>
-        <h2>Add your order</h2>
 
         <button disabled={disabled} id="order-button">Add to Order</button>
 

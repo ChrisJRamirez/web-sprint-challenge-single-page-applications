@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Route, Link, Switch } from "react-router-dom";
 import './App.css';
 import axios from "axios"
 import * as yup from "yup"
@@ -6,6 +7,7 @@ import schema from "./Schema"
 import {validate} from "uuid"
 import PizzaForm from "./PizzaForm"
 import OrderPizza from "./OrderPizza"
+import Home from "./Home"
 // setting up codegrade
 
 const initialFormValues = {
@@ -124,14 +126,21 @@ const App = () => {
   }, [formValues, schema])
   
 
-
-
   return (
   <div className="App">
     <header>
+      <div>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+      </div>
       <h1>Lambda Eats</h1>
     </header>
+      <div>
+        {/* <img src="https://i.guim.co.uk/img/media/d205774b055c5cbd231ac6527d642944424ba9a9/20_0_1383_830/master/1383.jpg?width=940&quality=45&auto=format&fit=max&dpr=2&s=fd1138850fef8f2a2dbff9bb98d96db9" alt="picture of Italian restaurant"></img> */}
+      </div>
 
+      
     <section>
       <PizzaForm
       values={formValues}
@@ -150,9 +159,8 @@ const App = () => {
         })
       }
      
-
     </section>
-    
+
   </div>
     
   );
